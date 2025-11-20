@@ -183,14 +183,10 @@ async function addSliderImages(
   const data = await fetchJSON(apiUrl);
   let html = "";
   try {
-    console.log("productsKey =", productsKey);
-    console.log("data =", data);
-    console.log("data[productsKey] =", data[productsKey]);
-
     data[productsKey].forEach((item, index) => {
       html += templateFn(item, index);
     });
-    
+
     if (appendMode) {
       // container.innerHTML += html;
       container.insertAdjacentHTML("beforeend", html);
@@ -390,7 +386,11 @@ async function InjectionProducts() {
 //این بخش برای نمایش همه محصولات به صورت pagination هست
 const btnAllProducts = $(".btn__all__products");
 const containerBtns = $(".container__btns");
+const Suggestions = $(".Suggestions");
+const stor = document.querySelector(".sub-menu .stor");
 btnAllProducts.addEventListener("click", GetAllProduct);
+Suggestions.addEventListener("click", GetAllProduct);
+stor.addEventListener("click", GetAllProduct);
 async function GetAllProduct(e) {
   //این بخش برای اضافه کردن btn های pagination هست
   e.preventDefault();
@@ -450,21 +450,44 @@ function filterproduct() {
     addSliderImages(
       `http://localhost:3000/api/products`,
       ".product-container",
-      templateFilter
+      (e, i) => templateFilter(e, i, true, false)
     );
   } else {
     addSliderImages(
       `http://localhost:3000/api/categories/${id}`,
       ".product-container",
-      templateFilter,
+      (e, i) => templateFilter(e, i, true, false)
     );
   }
 }
-function templateFilter(e, i) {
+// این بخش برای نمایش محصولات تخفیف دار هست
+const NewsArticles = $(".News-articles");
+const NewsArticlesSubMenu = $(".sub-menu .Off");
+NewsArticles.addEventListener("click", filterOff);
+NewsArticlesSubMenu.addEventListener("click", filterOff);
+function filterOff() {
+  const id = sessionStorage.getItem("idCategory");
+  if (id == "All") {
+    addSliderImages(
+      `http://localhost:3000/api/products`,
+      ".product-container",
+      (e, i) => templateFilter(e, i, false, true)
+    );
+  } else {
+    addSliderImages(
+      `http://localhost:3000/api/categories/${id}`,
+      ".product-container",
+      (e, i) => templateFilter(e, i, false, true)
+    );
+  }
+}
+function templateFilter(e, i, Filter, Off) {
   // این بخش برای کم کردن مقدار تخفیف از قیمت هست
+
   const price = e.price;
   const off = e.off;
   let result = price - (price * off) / 100;
+  // این بخش برای فیلتر کردن براساس قیمت هست
   const Discounted = `
      <div class="product__car" data-index="${i}">
               <div class="wrapper-img">
@@ -554,14 +577,25 @@ function templateFilter(e, i) {
             </div>
     
     `;
-  if (e.price >= Number(minRange.value) && e.price <= Number(maxRange.value)) {
-    if (e.off > 0) {
-      return Discounted;
-    } else {
-      return counted;
+  if (Filter) {
+    if (
+      e.price >= Number(minRange.value) &&
+      e.price <= Number(maxRange.value)
+    ) {
+      if (e.off > 0) {
+        return Discounted;
+      } else {
+        return counted;
+      }
     }
   }
-   return "";
+
+  if (Off) {
+    if (e.off > 0) {
+      return Discounted;
+    }
+  }
+  return "";
 }
 
 // function pagination(eve) {
@@ -608,3 +642,15 @@ function ChangingProductSizes(classname, element) {
   viewOptions.className = "product-container";
   viewOptions.classList.add(classname);
 }
+function handleCheck(element, container, callback) {
+  const discount = $(element);
+  const Container = $(container);
+  discount.addEventListener("change", () => {
+    if (discount.checked) {
+      callback();
+    } else {
+      Container.innerHTML = "";
+    }
+  });
+}
+handleCheck(".discount", ".product-container", filterOff);

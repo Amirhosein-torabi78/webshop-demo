@@ -726,7 +726,7 @@ body header .header-nav ul li img {
 .wrapper-discription > div {
   display: flex;
   gap: 10px;
-  height: 65px;
+  height: 80px;
 }
 .wrapper-discription > div span {
   color: #007bff;
