@@ -1,0 +1,200 @@
+API Documentation
+
+Base URL : http://localhost:3000/api/
+
+USERS : 
+
+🔹 Get All Users
+Description: Retrieve a list of all registered users
+
+Method: GET
+
+URL: /api/users
+------------------------------
+
+🔹 Register New User
+Description: Register a new user in the db.json
+
+Method: POST
+
+URL: /api/users
+
+Headers: Content-Type: application/json
+
+body : {
+  "userName": "john_doe",
+  "password": "securepassword123",
+  "email": "john@example.com"
+}
+
+--------------------------------
+
+🔹 User Login
+Method: POST
+
+URL: /api/users/login
+
+Headers:
+Content-Type: application/json
+
+Request Body:
+
+
+{
+  "userName": "john_doe",
+  "password": "securepassword123"
+}
+
+
+--------------------------------
+
+🔹 Reset Password
+Method: POST
+
+URL: /api/users/resetPassword
+
+Headers:
+Content-Type: application/json
+
+Request Body:
+
+
+{
+  "email": "user email",
+  "newPassword": "securepassword123"
+}
+
+---------------------------------------
+
+🔹 Get Single User
+Method: GET
+
+URL: /api/users/userId
+
+-------------------------------------------------
+🔹 Add to Favorites
+
+Method: POST
+
+URL: /api/users/:id/favorite
+
+Headers: Content-Type: application/json
+
+Request Body:
+
+{
+  "productId": ":productId"
+}
+
+-------------------------------------------------
+
+
+🔹 Remove from Favorites
+Method: DELETE
+
+URL: /api/users/:id/favorite?productId=productId
+
+---------------------------------------------------
+
+🔹 Add To Baskets
+Method: POST
+
+URL: /api/users/:id/basket
+
+Headers : Content-Type: application/json
+
+Request Body:
+
+{
+  "productId": ":productId"
+}
+
+-------------------------------------------
+
+🔹 Remove from Baskets
+Method: DELETE
+
+URL: /api/users/:id/basket?productId=productId
+
+---------------------------------------------------
+🔹 Get All Products 
+Method: GET
+
+URL: /api/products
+
+------------------------------------
+
+🔹 Get Single Products 
+Method: GET
+
+URL: /api/products/productId
+
+---------------------------------------
+
+🔹 Get All Categories 
+Method: GET
+
+URL: /api/categories
+
+---------------------------------------
+
+🔹 Get Single Category 
+Method: GET
+
+URL: /api/categories/categoryId
+
+------------------------------------------------
+🔹 Get Offs Product of Category
+Method: GET
+
+URL: /api/categories/offs
+
+--------------------------------------------------
+
+🔹 Get Offs Product
+Method: GET
+
+URL: /api/products/offs
+
+--------------------------------------------------
+
+🔹 Get products with pagination
+Method: GET
+
+URL: /api/products?page=pageNumber
+
+--------------------------------------------------
+
+🔹 Get products with filter
+Method: GET
+
+URL: /api/products?maxPrice=Number&minPrice=Number&brand=String&color=String&categoryId=1&inStash=Boolean&auction=Boolean
+auction = یعنی حراج شده
+inStash = یعنی در انبار موجود است یا نه
+
+--------------------------------------------------
+
+
+🔹 Search In Categories
+Method: POST
+
+URL: /api/categories/search
+
+Headers : Content-Type: application/json
+
+Request Body:
+
+{categoryId : 1 , value : inputValue}
+
+---------------------------------------------------
+
+🔹 Search In Products
+Method: POST
+
+URL: /api/products/search
+
+Headers : Content-Type: application/json
+
+Request Body:
+
+{value : inputValue}

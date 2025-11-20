@@ -1,0 +1,714 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- cdn css bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+    />
+    <!-- link css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- start header -->
+    <header class="w-1600">
+      <div class="header-top col-12">
+        <button class="btn-menu d-lg-none">
+          <i class="fa-solid fa-bars"></i> منو
+        </button>
+        <div class="wrapper-img">
+          <img class="w-100" src="./assets/img/logo.png" alt="" />
+        </div>
+        <div class="box-menu col-8 col-md-6 col-lg-7">
+          <div class="wrapper-search col-12 col-lg-8">
+            <input
+              class="search-input w-100"
+              type="text"
+              title="جستجو برای محصولات"
+              placeholder="جستجو برای محصولات"
+            />
+            <div>
+              <select
+                class="Categor-btn d-none d-lg-block"
+                name=""
+                id=""
+                title=" انتخاب دسته بندی"
+              >
+                <option value="">انتخاب دسته بندی</option>
+              </select>
+              <button title="جستجو" class="btn-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+            <!-- <section class="element-show col-12 d-none"></section> -->
+          </div>
+          <div class="wrapper-location col-lg-3 d-none d-lg-flex">
+            <div class="img-location">
+              <img
+                class=""
+                src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/Location.svg"
+                alt=""
+              />
+            </div>
+            <div class="title-loction">
+              <p class="">ارسال رایگان به</p>
+              <p class="">تمامی شهر های کشور</p>
+            </div>
+          </div>
+          <section class="element-show col-12 col-lg-4 d-none"></section>
+          <a href="" class="item col-12 d-lg-none d-block">
+            <img src="./assets/img/svg/Home.svg" alt="" />صفحه اصلی<i
+              class="fa-solid fa-angle-left"
+            ></i>
+          </a>
+          <a href="" class="item col-12 d-lg-none d-block">
+            <img src="./assets/img/svg/Buy-2.svg" alt="" />فروشگاه
+          </a>
+          <a href="" class="item col-12 d-lg-none d-block">
+            <img src="./assets/img/svg/Discount-1.svg" alt="" />تخفیف ها
+          </a>
+          <a href="" class="item col-12 d-lg-none d-block">
+            <img src="./assets/img/svg/Document-1.svg" alt="" />بلاگ
+          </a>
+          <a href="" class="item col-12 d-lg-none d-block">
+            <img src="./assets/img/svg/Calling-3.svg" alt="" />تماس با ما
+          </a>
+          <a href="" class="item col-12 d-lg-none d-block">
+            <img src="./assets/img/svg/3-User-1.svg" alt="" />درباره ما
+          </a>
+          <div class="item wrapper-Login col-12 col-lg-2">
+            <i class="fa-regular fa-user"></i>
+            <a href="./assets/page/sign up/sign-up.html">ثبت نام</a> /
+            <a href="./assets/page/Login/login.html">ورود</a>
+          </div>
+        </div>
+        <a title="سبد خرید" href="" class="wrapper-Shopping col-lg-2">
+          <!-- cart-outline.svg -->
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              aria-hidden="false"
+              role="img"
+            >
+              <title>سبد خرید</title>
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 3h2l2.4 11.2A2 2 0 0 0 9.3 16h8.4a2 2 0 0 0 1.9-1.5L21 7H6"
+                />
+                <path
+                  d="M16 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                />
+              </g>
+            </svg>
+            <span class="Number-shopping-lists">0</span>
+          </span>
+          <span class="Total-cart-price d-none d-lg-inline">0تومان</span>
+        </a>
+      </div>
+      <div class="header-nav col-12 fade-in d-lg-block d-none">
+        <div class="Categories">
+          <img src="./assets/img/svg/category.8fff523.svg" alt="" />دسته بندی ها
+          <i class="fa-solid fa-angle-down"></i>
+        </div>
+        <ul class="mega-menu d-none"></ul>
+        <div class="Home-nav">
+          <a href="#"
+            ><img src="./assets/img/svg/Home-1.svg" alt="" /> صفحه اصلی
+            <i class="fa-solid fa-angle-down"></i
+          ></a>
+        </div>
+        <div class="Suggestions"><a href="#">پیشنهادات شگفت انگیز</a></div>
+        <div class="News-articles">
+          <a href="#"
+            ><img src="./assets/img/svg/mag-g.fe2390e.svg" alt="" /> اخبار و
+            مقالات روز</a
+          >
+        </div>
+        <div class="View-products">
+          <a href="#"
+            ><img src="./assets/img/svg/shop.805179a.svg" alt="" />مشاهده تمام
+            محصولات</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- end header -->
+    <!-- start Slider top  -->
+    <section class="Slider w-1600">
+      <div class="slider-sub w-15 d-md-block d-none">
+        <img class="w-100" src="./assets/img/slider/slider-side.jpg" alt="" />
+      </div>
+      <div class="col-12 col-md-8">
+        <div
+          id="carouselExampleRide"
+          class="carousel slide"
+          data-bs-ride="true"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleRide"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleRide"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleRide"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleRide"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./assets/img/slider/slider1.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/img/slider/slider2.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/img/slider/slider3.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/img/slider/slider4.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleRide"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleRide"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="slider-sub w-15 d-md-block d-none">
+        <img class="w-100" src="./assets/img/slider/slider-side2.jpg" alt="" />
+      </div>
+    </section>
+    <!-- end Slider top -->
+    <!-- start Show Category -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item Show-category"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end Show Category  -->
+    <!-- start Discounts -->
+    <section class="Discounts timer w-1600">
+      <div class="title-Discounts">
+        <div>
+          <img class="w-100" src="./assets/img/svg/Discount-1.svg" alt="" />
+        </div>
+        پیشنهاد ویژه لومان
+      </div>
+      <div class="timer-Discounts">
+        <div class="container">
+          <div id="countdown">
+            <ul>
+              <li><span id="seconds"></span>ثانیه</li>
+              <li><span id="minutes"></span>دقیقه</li>
+              <li><span id="hours"></span>ساعت</li>
+              <li><span id="days"></span>روز</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <button class="btn-Discounts d-none d-md-block">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left.svg" alt="" />
+      </button>
+    </section>
+    <!-- end Discounts -->
+    <!-- start slider off -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item products"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slidr off -->
+    <!-- start baner -->
+    <section class="wrapper-baner d-block d-md-flex w-1600">
+      <div class="col-12 col-md-6 d-sm-block">
+        <img class="w-100" src="./assets/img/slider/banner1.jpg" alt="" />
+      </div>
+      <div class="col-12 col-md-6 d-sm-block">
+        <img class="w-100" src="./assets/img/slider/banner2.jpg" alt="" />
+      </div>
+    </section>
+    <!-- end baner -->
+    <!-- start Title visited -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">پربازدید ترین ها</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end Most visited -->
+    <!-- start slider most-Visited -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item most-visited"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider most-Visited  -->
+    <!-- start slider Mobile brands -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item mobile-brands"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider Mobile brands -->
+    <!-- start Title Bestsellers  -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">پرفروش ترین ها</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end Title Bestsellers  -->
+    <!-- start slider Bestsellers -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item bestsellers"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider Bestsellers -->
+    <!-- start baner -->
+    <section class="sub-baner w-1600">
+      <a href="#javascript" class="wrapper-img col-12">
+        <img
+          class="w-100"
+          src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/banner3-min.jpg"
+          alt=""
+        />
+      </a>
+    </section>
+    <!-- end baner -->
+    <!-- start title products mobile -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">گوشی موبایل</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end title products mobile -->
+    <!-- start slider products mobile -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item slider-mobile"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider products mobile -->
+    <!-- start title products Speaker -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">اسپیکر(بلندگو)</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end title products Speaker -->
+    <!-- start slider products Speaker -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item slider-Speaker"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider products Speaker -->
+    <!-- start title products Television -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">تلویزیون</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end title products Television -->
+    <!-- start slider products Television -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item slider-Television"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider products Television -->
+    <!-- strat baner category -->
+    <section class="baner-category w-1600">
+      <div>
+        <a class="col" href="#javascript"
+          ><img
+            class="w-100"
+            src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/banner6.jpg"
+            alt=""
+        /></a>
+        <a class="col" href="#javascript"
+          ><img
+            class="w-100"
+            src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/banner5.jpg"
+            alt=""
+        /></a>
+      </div>
+      <div>
+        <a class="col" href="#javascript"
+          ><img
+            class="w-100"
+            src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/banner4.jpg"
+            alt=""
+        /></a>
+        <a class="col" href="#javascript"
+          ><img
+            class="w-100"
+            src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/banner3.jpg"
+            alt=""
+        /></a>
+      </div>
+    </section>
+    <!-- end baner category -->
+    <!-- start Latest news -->
+    <section class="wrapper-slider w-1600 Latest-news">
+      <h5>اخبار جدید تکنولوژی</h5>
+      <div class="wrapper-Slider-item">
+        <a href="javascript:void(0)" class="slider-item" data-index="1">
+          <div class="slider-img">
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/b4-min-1.jpg"
+              alt=""
+              class="w-100"
+            />
+            <div class="continue-reading">
+              <p>به خواندن ادامه دهید</p>
+            </div>
+          </div>
+          <p>مک بوک پرو مجهز به تراشه M2 پرو ماه آینده از راه می‌رسند</p>
+          <span> ترفندها تکنولوژی راهنمای خرید</span>
+        </a>
+        <a href="javascript:void(0)" class="slider-item" data-index="2">
+          <div class="slider-img">
+            <img
+              src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/b2-min-1.jpg"
+              alt=""
+              class="w-100"
+            />
+            <div class="continue-reading">
+              <p>به خواندن ادامه دهید</p>
+            </div>
+          </div>
+          <p>بررسی اپل واچ اولترا؛ ظهور کمالگرا به زودی خواهد رسید</p>
+          <span> اخبار اطلاعیه ترفندها تکنولوژی</span>
+        </a>
+        <a href="javascript:void(0)" class="slider-item" data-index="3">
+          <div class="slider-img">
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/b1-min.jpg"
+              alt=""
+              class="w-100"
+            />
+            <div class="continue-reading">
+              <p>به خواندن ادامه دهید</p>
+            </div>
+          </div>
+          <p>آیفون ۱۴ پرو و پرو مکس با روزنه جدید معرفی شدند</p>
+          <span>ترفندهاو تکنولوژی راهنمای خرید</span>
+        </a>
+        <a href="javascript:void(0)" class="slider-item" data-index="4">
+          <div class="slider-img">
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/b3-min-1.jpg"
+              alt=""
+              class="w-100"
+            />
+            <div class="continue-reading">
+              <p>به خواندن ادامه دهید</p>
+            </div>
+          </div>
+          <p>آیا پروژه تولید مودم اپل با شکست مواجه شده است؟</p>
+          <span>اخبار اطلاعیه ترفندها راهنمای خرید</span>
+        </a>
+      </div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end Latest news -->
+    <!-- start title products Game console -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">کنسول بازی</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end title products Game console -->
+    <!-- start slider products Game console -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item slider-game-console"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider products Game console -->
+    <!-- start title products Laptop -->
+    <section class="Discounts w-1600 col-12 Product-title">
+      <div class="title-Discounts">لپ تاپ</div>
+      <button class="btn-Discounts">
+        مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
+      </button>
+    </section>
+    <!-- end title products Laptop -->
+    <!-- start slider products Laptop -->
+    <section class="wrapper-slider w-1600">
+      <div class="wrapper-Slider-item slider-Laptop"></div>
+      <button class="btn-slider-right">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button class="btn-slider-left"><i class="fa fa-angle-left"></i></button>
+    </section>
+    <!-- end slider products Laptop -->
+    <!-- start footer -->
+    <footer>
+      <!-- start Support -->
+      <section class="Support w-1600">
+        <div class="text-support col-12 col-md-6">
+          <p>پشتیبانی</p>
+          <p>
+            <span>تلفنی : 12345678-021</span>
+            <span> شنبه تا چهارشنبه ۸ الی ۲۱ - پنجشنبه 8 الی ۲۰:۳۰</span>
+          </p>
+          <p>ایمیل : info@example.ir</p>
+        </div>
+        <div class="icons-support col-12 col-md-6">
+          <div>
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/fastSend.57a5d18.svg"
+              alt=""
+            />
+            <p>ارسال سریع کالا</p>
+          </div>
+          <div>
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/productReturn.dea9b58.svg"
+              alt=""
+            />
+            <p>مهلت ۷ روز بازگشت کالا</p>
+          </div>
+          <div class="d-none d-md-block">
+            <img
+              src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/phoneSupport.14858ff.svg"
+              alt=""
+            />
+            <p>پشتیبانی تلفنی</p>
+          </div>
+          <div class="d-none d-md-block">
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/productGuaranty.e7f72bd.svg"
+              alt=""
+            />
+            <p>تضمین اصالت کالا</p>
+          </div>
+        </div>
+        <button class="Go-up">
+          <i class="fa-solid fa-angle-up" aria-hidden="true"></i>بازگشت به بالا
+        </button>
+      </section>
+      <!-- end Support -->
+      <!-- start About -->
+      <section class="About w-1600">
+        <div class="about-titls col-12 col-md-8">
+          <div class="col-12 col-md-5">
+            <div class="">
+              <p>با لومان</p>
+              <span>درباره لومان </span>
+              <span>تماس با لومان</span>
+              <span>فرصت های شغلی</span>
+              <span>فروشنده شوید</span>
+            </div>
+            <div class="">
+              <p>راهنمای خرید</p>
+              <span>درباره لومان </span>
+              <span>تماس با لومان</span>
+              <span>فرصت های شغلی</span>
+              <span>فروشنده شوید</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-7">
+            <div class="">
+              <p>خدمات مشتریان</p>
+              <span>درباره لومان </span>
+              <span>تماس با لومان</span>
+              <span>فرصت های شغلی</span>
+              <span>فروشنده شوید</span>
+              <span>فروشنده شوید</span>
+            </div>
+            <div class="">
+              <p>قیمت گوشی</p>
+              <span>درباره لومان </span>
+              <span>تماس با لومان</span>
+              <span>فرصت های شغلی</span>
+              <span>فروشنده شوید</span>
+              <span>فروشنده شوید</span>
+            </div>
+            <div class="d-none d-md-block">
+              <p>قیمت کالای دیجیتال</p>
+              <span>درباره لومان </span>
+              <span>تماس با لومان</span>
+              <span>فرصت های شغلی</span>
+              <span>فروشنده شوید</span>
+              <span>فروشنده شوید</span>
+            </div>
+          </div>
+        </div>
+        <form class="col-12 col-md-4">
+          <p>
+            با ماهمراه باشید<span>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-whatsapp"></i>
+            </span>
+          </p>
+          <p>از اخرین اخبار ها با خبر بشید</p>
+          <input
+            type="email"
+            name=""
+            id=""
+            placeholder=" ایمیل خود را وارد کنید"
+          />
+          <button type="button">ثبت نام</button>
+        </form>
+      </section>
+      <!-- end About -->
+      <!-- strat Trust building -->
+      <section class="trust-building w-1600">
+        <div class="col-12 col-md-6">
+          <p>
+            فروشگاه اینترنتی مبیت، خرید آسان کالای دیجیتال با مناسب ترین قیمت
+          </p>
+          <span
+            >فروشگاه اینترنتی لومان از جمله عرضه‌کنندگان کالای دیجیتال در سراسر
+            کشور است که انواع کالاهای دیجیتال از جمله گوشی موبایل، لپ تاپ، تبلت
+            و لوازم جانبی گوشی را با قیمت مناسب و ضمانت اصالت کالا به فروش
+            می‌رساند.
+          </span>
+        </div>
+        <div class="col-12 col-md-6">
+          <div>
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/New-Project-1-1.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/New-Project-3-1.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/New-Project-3.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <!-- end Trust building -->
+      <!-- start menu bottom -->
+      <section class="menu-bottom w-1600">
+        <a href="#javascript"
+          ><i class="fa-solid fa-house"></i><span> صفحه اصلی</span></a
+        >
+        <a href="#javascript"
+          ><i class="fa-solid fa-store"></i><span>فروشگاه</span></a
+        >
+        <a href="#javascript"
+          ><i class="fa-solid fa-heart"></i><span>علاقه مندی ها</span></a
+        >
+        <a href="#javascript"
+          ><i class="fa-solid fa-user"></i><span>حساب</span></a
+        >
+      </section>
+      <!-- end menu bottom -->
+    </footer>
+    <!-- end footer -->
+    <!-- cdn font awesome -->
+    <script
+      src="https://kit.fontawesome.com/a6d46a5bbd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- cdn js bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- link js -->
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

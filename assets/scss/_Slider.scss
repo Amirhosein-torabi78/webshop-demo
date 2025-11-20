@@ -1,0 +1,10 @@
+/** @format */
+@use "variable" as *;
+@use "mixin" as *;
+@use "media-query" as *;
+.Slider {
+  @include flex(space-between, start);
+  @include margin(25px, auto, 25px, auto);
+  @include padding(10px, 15px, 10px, 15px);
+  gap: 20px;
+}

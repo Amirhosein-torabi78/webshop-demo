@@ -1,0 +1,20 @@
+$Vazi: "Vazi";
+$font-12: 12px;
+$font-14: 14px;
+$font-15: 15px;
+$font-16: 16px;
+$font-18: 18px;
+$font-20: 20px;
+$font-weight: 600;
+$radius-0: 0;
+$radius-5: 5px;
+$radius-10: 10px;
+$radius-15: 15px;
+$radius-50: 50px;
+$radius-100: 100px;
+$color-icons-menu: #625c5c;
+$color-icons-menu-hover: #000;
+@font-face {
+  font-family: $Vazi;
+  src: url(../fonts/Vazirmatn-Medium.woff2) format("woff");
+}

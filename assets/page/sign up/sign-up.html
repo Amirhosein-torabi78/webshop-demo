@@ -1,0 +1,73 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فرم ثبت نام</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <h1>ثبت نام</h1>
+          <p>حساب کاربری جدید ایجاد کنید</p>
+        </div>
+
+        <form class="signup-form" id="signupForm">
+          <div class="form-group">
+            <label for="firstName">نام کاربری</label>
+            <div class="input-container">
+              <i class="fas fa-user"></i>
+              <input type="text" id="firstName" name="username" required />
+            </div>
+            <span class="error-message" id="firstNameError"></span>
+          </div>
+
+
+          <div class="form-group">
+            <label for="email">ایمیل</label>
+            <div class="input-container">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <span class="error-message" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="password">رمز عبور</label>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" name="password" required />
+              <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+            <span class="error-message" id="passwordError"></span>
+          </div>
+
+          <button type="button" class="submit-btn">
+            <span>ثبت نام</span>
+            <i class="fas fa-arrow-left"></i>
+          </button>
+        </form>
+
+        <div class="form-footer">
+          <p>
+            قبلاً حساب کاربری دارید؟
+            <a href="../Login/login.html" class="login-link">وارد شوید</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

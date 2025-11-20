@@ -1,0 +1,166 @@
+/** @format */
+
+@use "variable" as *;
+@use "mixin" as *;
+@use "media-query" as *;
+body {
+  footer {
+    .Support {
+      margin: 50px auto;
+      @include flex(space-between, center);
+      @include padding(25px, 30px, 25px, 30px);
+      background-color: #f5f5f5;
+      border-radius: $radius-10;
+      position: relative;
+
+      .text-support {
+        @include padding(10px, 10px, 10px, 10px);
+        p {
+          margin: 10px, 0;
+          :nth-child(1) {
+            border-left: 2px solid #b7b7b7c2;
+          }
+          span {
+            @include padding(5px, 0px, 5px, 10px);
+            font-size: $font-15;
+          }
+        }
+      }
+      .icons-support {
+        @include flex(space-between, center);
+        > div {
+          width: 80px;
+          @include flex(space-between, center);
+          flex-direction: column;
+          img {
+            width: 100%;
+          }
+          P {
+            font-size: $font-14;
+            text-align: center;
+          }
+        }
+      }
+      button {
+        all: unset;
+        position: absolute;
+        top: -5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f5f5f5;
+        @include padding(10px, 25px, 10px, 25px);
+        border-radius: 5px 5px 0 0;
+      }
+    }
+    .About {
+      @include flex(space-between, start);
+      @include padding(10px, 30px, 10px, 30px);
+      div.about-titls {
+        @include flex(start, start);
+        > div {
+          @include flex(space-around, start);
+
+          > div {
+            @include flex(space-around, start);
+            flex-direction: column;
+            p {
+              font-size: $font-18;
+            }
+            span {
+              display: block;
+              font-size: 17px;
+              margin-bottom: 15px;
+              color: #919191;
+            }
+          }
+        }
+      }
+    }
+    form {
+      width: 300px;
+      @include flex(center, start);
+      flex-direction: column;
+      gap: 15px;
+      padding: 0 20px;
+      p {
+        width: 100%;
+        font-size: $font-18;
+        @include flex(space-between, center);
+        span {
+          i {
+            transform: scale(1.6);
+            margin-right: 15px;
+            color: #aeadad;
+            cursor: pointer;
+          }
+        }
+      }
+      input {
+        padding: 8px 15px;
+        width: 100%;
+        text-align: right;
+        border: 1px #919191 solid;
+        border-radius: $radius-10;
+        outline: none;
+      }
+      button {
+        all: unset;
+        border: 1px solid #ccc;
+        padding: 13px 25px;
+        border-radius: $radius-50;
+        color: #fff;
+        font-size: $font-14;
+        background-color: rgba(0, 121, 235, 1);
+        box-shadow: 1px 2px 13px rgba(0, 121, 235, 0.7);
+        transition: all 0.3s;
+        &:hover {
+          background-color: rgb(3, 110, 210);
+        }
+      }
+    }
+
+    .trust-building {
+      @include flex(space-between, center);
+      padding: 25px 0;
+      div {
+        p {
+          font-size: $font-18;
+        }
+        span {
+          color: #aeadad;
+        }
+      }
+      :nth-child(2) {
+        @include flex(end, center);
+        gap: 30px;
+
+        div {
+          width: 130px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .menu-bottom {
+      position: fixed;
+      right: 0;
+      bottom: -20px;
+      left: 0;
+      z-index: 300;
+      overflow-x: auto;
+      overflow-y: hidden;
+      height: 65px;
+      background-color: #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      @include flex(space-around, center);
+      @include padding(10px, 5px, 10px, 5px);
+      display: none;
+      a {
+        @include flex(space-between, center);
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  }
+}

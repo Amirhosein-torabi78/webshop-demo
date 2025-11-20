@@ -1,0 +1,334 @@
+/** @format */
+
+@use "variable" as *;
+@use "mixin" as *;
+@use "media-query" as *;
+body {
+  .Show-category {
+    @include padding(15px, 15px, 15px, 15px);
+    // margin: auto;
+    a {
+      width: 160px !important;
+      margin: 0 15px !important;
+      div {
+        @include flex(space-between, center);
+        flex-direction: column;
+        img {
+          // filter: brightness(1.1) sepia(0.11) saturate(0.5) hue-rotate(0deg);
+          border-radius: $radius-10;
+        }
+      }
+      p.title-item {
+        font-size: 16px !important;
+        height: auto !important;
+      }
+      span {
+        font-size: 14px !important;
+        color: #777777 !important;
+      }
+    }
+  }
+  .Discounts {
+    @include flex(space-between, center);
+    background-color: #ff6a6a;
+    border-radius: $radius-10;
+    @include padding(10px, 20px, 10px, 20px);
+    .title-Discounts {
+      @include flex(space-between, center);
+      color: #fff;
+      gap: 15px;
+      div {
+        width: 40px;
+        img {
+          filter: brightness(5) sepia(0.11) saturate(0.5) hue-rotate(0deg);
+        }
+      }
+    }
+    .timer-Discounts {
+      h1 {
+        font-weight: normal;
+        letter-spacing: 0.125rem;
+        text-transform: uppercase;
+      }
+      UL {
+        margin: 0;
+        padding: 0;
+        li {
+          display: inline-block;
+          font-size: 1em;
+          list-style-type: none;
+          padding: 0.5em;
+          text-transform: uppercase;
+          background-color: #fff;
+          border-radius: $radius-10;
+          font-size: $font-12;
+          color: #a09f9f;
+          text-align: center;
+        }
+      }
+
+      li span {
+        display: block;
+        font-size: $font-14;
+        color: #000;
+        text-align: center;
+      }
+
+      @media all and (max-width: 768px) {
+        h1 {
+          font-size: calc(1.5rem * var(--smaller));
+        }
+
+        li {
+          font-size: calc(1.125rem * var(--smaller));
+        }
+
+        li span {
+          font-size: calc(3.375rem * var(--smaller));
+        }
+      }
+    }
+    .btn-Discounts {
+      all: unset;
+      color: #fff;
+      img {
+        transition: transform 0.4s;
+        transform: translateX(0);
+      }
+      &:hover img {
+        transform: translateX(-5px);
+      }
+    }
+  }
+  .wrapper-slider {
+    position: relative;
+    overflow: hidden;
+    .wrapper-Slider-item {
+      min-width: 4000px;
+      // display: flex;
+      overflow-y: hidden;
+      transform: translateX(0);
+      transition: transform 0.4s;
+      .slider-item {
+        width: 275px;
+        display: inline-block;
+        @include margin(0, 20px, 0, 20px);
+        img {
+          border-radius: 10px;
+        }
+        &:hover .slider-img .slider-iconds button {
+          opacity: 1;
+        }
+        div.slider-img {
+          width: 100%;
+          display: block;
+          position: relative;
+          z-index: 1;
+
+          .slider-iconds {
+            width: 80% !important;
+            height: 35px;
+            position: absolute;
+            right: 10%;
+            bottom: 30px;
+            z-index: 5;
+            direction: ltr;
+            @include flex(space-around, center);
+            justify-content: spa;
+            button {
+              position: relative !important;
+              width: 25px !important;
+              height: 25px;
+              border-radius: 100%;
+              background-color: #fff;
+              margin: 5px;
+              padding: 8px;
+              opacity: 0;
+              box-shadow: 0 0 20px 1px #ccc;
+              transform: scale(1);
+              transition: all 0.5s ease;
+              &:hover {
+                transform: scale(1.15);
+                box-shadow: 0 0 20px 2px #868686;
+              }
+              i {
+                color: #5d5d5d;
+                font-size: 16px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
+            }
+          }
+          span {
+            position: absolute;
+            right: 20px;
+            background-color: #0082fd;
+            color: #fff;
+            @include padding(3px, 10px, 3px, 10px);
+            border-radius: $radius-5;
+            font-size: $font-12;
+          }
+        }
+        p {
+          display: block;
+          text-align: center;
+          font-size: $font-16;
+          font-weight: $font-weight;
+          @include margin(20px, 0, 10px, 0);
+          height: 50px;
+        }
+        span {
+          text-align: center;
+          font-size: $font-16;
+          font-weight: $font-weight;
+          display: block;
+          @include margin(20px, 0, 10px, 0);
+          color: #0082fd;
+          del {
+            color: #a09f9f;
+            font-size: $font-12;
+          }
+        }
+      }
+    }
+    button {
+      all: unset;
+      position: absolute;
+      top: 40%;
+      transform: translate(-50% -50%);
+      i {
+        font-size: 25px;
+        color: #a09f9f;
+      }
+    }
+    .btn-slider-right {
+      right: 15px;
+    }
+    .btn-slider-left {
+      left: 15px;
+    }
+  }
+  .Latest-news {
+    .wrapper-Slider-item {
+      // min-width: 100% !important;
+      margin-top: 25px !important;
+
+      .slider-item {
+        position: relative;
+        width: 355px;
+        span {
+          height: 50px !important;
+          width: 100% !important;
+          margin: 0 !important;
+        }
+        .continue-reading {
+          width: 100%;
+          height: 50%;
+          position: absolute;
+          bottom: 0;
+          border-radius: $radius-10;
+          opacity: 0;
+          transition: all 0.4s;
+          background: linear-gradient(to top, #007bff 0%, #007bff00 100%);
+          > p {
+            margin-top: 25% !important;
+            color: #fff;
+            height: auto !important;
+            font-weight: normal !important;
+            transition: all 0.4s;
+          }
+        }
+
+        &:hover .continue-reading {
+          opacity: 1;
+        }
+
+        &:hover .continue-reading > p {
+          margin-top: 20% !important;
+        }
+      }
+    }
+  }
+
+  .wrapper-baner {
+    @include margin(25px, auto, 0, auto);
+    @include padding(0, 25px, 0, 25px);
+    @include flex(space-between, center);
+    gap: 20px;
+    div {
+      display: inline-block;
+      @include margin(0, 0, 20px, 0);
+    }
+  }
+  .Product-title {
+    background-color: #f5f5f5 !important;
+    .title-Discounts {
+      @include padding(15px, 15px, 15px, 15px);
+      color: #000 !important;
+      font-size: 22px;
+    }
+    .btn-Discounts {
+      color: #000 !important;
+    }
+  }
+  .mobile-brands {
+    a {
+      position: relative;
+      z-index: 1;
+      .location-brand {
+        position: absolute;
+        z-index: 5;
+        left: 15px;
+        bottom: 25px;
+        background-color: #f1f7fc;
+        padding: 6px 10px;
+        border-radius: $radius-10;
+        p {
+          font-weight: normal !important;
+          font-size: 15px !important;
+          margin: 0 !important;
+          height: auto !important;
+        }
+        span {
+          color: #b1afaf !important;
+          margin: 5px !important;
+          font-size: 13px !important;
+          font-weight: 100 !important;
+          // @include flex(space-between ,center);
+          &::before {
+            content: "";
+            background-image: url(../img/svg/location.svg);
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+  .sub-baner {
+    @include padding(10px, 10px, 10px, 10px);
+    a {
+      img {
+        border-radius: $radius-10;
+      }
+    }
+  }
+  .baner-category {
+    @include padding(10px, 10px, 10px, 10px);
+    @include flex(space-around, center);
+    // gap: 15px;
+    div {
+      @include flex(space-around, center);
+      gap: 15px;
+      a {
+        @include margin(10px, 10px, 10px, 10px);
+        img {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}

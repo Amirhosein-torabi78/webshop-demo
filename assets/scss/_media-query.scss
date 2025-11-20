@@ -1,0 +1,123 @@
+/** @format */
+
+@use "variable" as *;
+@use "mixin" as *;
+@media (max-width: 992px) {
+  .box-menu {
+    height: 100vh;
+    position: absolute !important;
+    top: -15%;
+    right: -100%;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px #ccc !important;
+    flex-direction: column;
+    justify-content: start !important;
+    a,.wrapper-Login {
+      a{
+      border: none !important;
+      }
+      border-radius: $radius-0 !important;
+      text-align: start !important;
+      border-bottom: 1px solid #ccc;
+    }
+    div {
+      border: none;
+      border-radius: $radius-0 !important;
+      text-align: start !important;
+    }
+    .wrapper-search {
+      padding: 25px 10px !important;
+    }
+    .item {
+      @include padding(0, 0, 8px, 0);
+      @include margin(10px, 0, 10px, 0);
+      .fa-angle-left {
+        float: left;
+      }
+    }
+    .element-show {
+      position: static !important;
+      div {
+        border: none !important;
+      }
+    }
+  }
+  .wrapper-Shopping {
+    @include margin(0, 0, 0, 30px);
+  }
+  .menu-bottom {
+    display: flex !important;
+  }
+}
+@media (max-width: 768px) {
+  .timer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .slider-iconds {
+    justify-content: center !important;
+    gap: 10px;
+    button {
+      opacity: 1 !important;
+    }
+  }
+  .slider-item {
+    width: 200px !important;
+    p {
+      height: 60px !important;
+    }
+  }
+  .baner-category {
+    display: block !important;
+    width: 100% !important;
+  }
+  .location-brand {
+    p {
+      font-size: 10px !important;
+    }
+    span {
+      font-size: 12px !important;
+    }
+  }
+  .Latest-news {
+    .wrapper-Slider-item {
+      .slider-item {
+        width: 450px !important;
+      }
+    }
+  }
+  .Support {
+    display: block !important;
+    width: 90vw;
+    .icons-support {
+      justify-content: space-evenly !important;
+    }
+  }
+  .About {
+    flex-direction: column;
+    .about-titls {
+      flex-direction: column;
+      > div {
+        margin-top: 25px !important;
+      }
+    }
+  }
+  .trust-building {
+    display: block !important;
+    div {
+      margin-top: 25px !important;
+    }
+    :nth-child(2) {
+      justify-content: center !important;
+      margin-bottom: 25px !important;
+      > div {
+        width: 175px !important;
+      }
+    }
+  }
+}
+@media (max-width: 1550px) {
+  .w-1600 {
+    width: 100% !important;
+  }
+}

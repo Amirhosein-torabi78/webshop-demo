@@ -1,0 +1,29 @@
+/** @format */
+
+@use "variable" as *;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Vazi;
+}
+a {
+  text-decoration: none;
+  font-size: $font-14;
+  color: #5a5a5a;
+}
+ul,
+li {
+  list-style: none;
+}
+button {
+  cursor: pointer !important;
+}
+
+.w-1600 {
+  width: 1600px;
+  margin: 25px auto;
+}
+.w-15 {
+  width: 15.667%;
+}
