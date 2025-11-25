@@ -1,5 +1,4 @@
 <!-- @format -->
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
   <head>
@@ -52,7 +51,7 @@
             <button class="btn-active">منو</button><button>دسته بندی ها</button>
           </div>
           <div class="sub-menu d-lg-none">
-            <a href="../../../index.html" class="item col-12 Home">
+            <a href="../../../index.html" class="item col-12">
               <img src="../../img/svg/Home.svg" alt="" />صفحه اصلی<i
                 class="fa-solid fa-angle-left"
               ></i>
@@ -83,16 +82,16 @@
           </div>
           <ul class="menu-categories d-lg-none d-none"></ul>
         </div>
-        <a title="سبد خرید" href="#" class="wrapper-Shopping col-lg-2">
+        <a title="سبد خرید" href="#" class="wrapper-Shopping col-lg-3">
           <span class="d-none d-lg-inline">
             <img src="../../img/Heart-1.svg" alt="" />
-            <span class="Number-shopping-lists">0</span>
+            <span class="Number-Interest-lists"></span>
           </span>
           <span>
             <img src="../../img/Buy.svg" alt="" />
-            <span class="Number-shopping-lists">0</span>
+            <span class="Number-shopping-lists"></span>
           </span>
-          <span class="Total-cart-price d-none d-lg-inline">0تومان</span>
+          <span class="Total-cart-price d-none d-lg-inline"></span>
         </a>
       </div>
       <div class="nav col-12 fade-in">
@@ -214,7 +213,7 @@
         <div class="products-main">
           <div class="product-controls">
             <div class="product-controls__breadcrumb">
-              <span class="Home">خانه</span>/
+              <a href="../../../index.html" class="Home">خانه</a>/
               <span class="breadcrumb">فروشگاه</span>
             </div>
             <div class="product-controls__sort">
@@ -223,7 +222,9 @@
                 <span>همه</span>
               </div>
               <div class="view-options">
-                <span onclick="ChangingProductSizes('width-50','.product-container')">
+                <span
+                  onclick="ChangingProductSizes('width-50','.product-container')"
+                >
                   <svg
                     width="30"
                     height="30"
@@ -265,7 +266,9 @@
                     />
                   </svg>
                 </span>
-                <span onclick="ChangingProductSizes('width-33','.product-container')">
+                <span
+                  onclick="ChangingProductSizes('width-33','.product-container')"
+                >
                   <svg
                     width="30"
                     height="30"
@@ -323,7 +326,9 @@
                     />
                   </svg>
                 </span>
-                <span onclick="ChangingProductSizes('width-24','.product-container')">
+                <span
+                  onclick="ChangingProductSizes('width-24','.product-container')"
+                >
                   <svg
                     width="30"
                     height="30"
@@ -415,6 +420,64 @@
       </section>
     </main>
     <!-- end main -->
+    <!-- start show product -->
+    <section class="show__product d-none">
+      <!-- <div class="container__product">
+         <i class="fa-solid fa-xmark"></i>
+        <div class="img__product">
+          <div>
+            <img
+              src="	https://theme.fullwp.ir/luman/digital-shop/wp-content/uploads/2022/10/New-Project10-1-20-1.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="data__product">
+          <h3>اسپیکر بلوتوثی قابل حمل مدل GZ-p44</h3>
+          <p>998,000 تومان</p>
+          <ul>
+            <li>نسخه بلوتوث: <span>5</span></li>
+            <li>برابط ها: <span>Bluetooth</span></li>
+            <li>وزن : <span>۳۵۰۰۰ گرم</span></li>
+            <li>نوع اتصال : <span>بی‌سیم (Wi-Fi)</span></li>
+            <li>حساسیت : <span> ۱۳۸ دسی بل</span></li>
+            <li>سیستم خنک کننده : <span>فن</span></li>
+          </ul>
+          <div class="add__to__basket">
+            <div class="Product__counter">
+              <button><i class="fa-solid fa-minus"></i></button>
+              <input type="number" value="1" />
+              <button><i class="fa-solid fa-plus"></i></i></button>
+            </div>
+            <button>افزودن به سبدخرید</button>
+          </div>
+          <div class="add__to__favorite">
+            <button>
+              <i class="fa-regular fa-heart" aria-hidden="true"></i> افزودن به
+              علاقه مندی
+            </button>
+            <button>
+              <i class="fa-solid fa-shuffle" aria-hidden="true"></i>مقایسه
+            </button>
+          </div>
+          <div class="Product__features">
+            <p>شناسه محصول:<span>GZ-p44</span></p>
+            <p>دسته:<span>اسپیکر</span></p>
+            <p>برچسب:<span>اسپیکر، بلندگو</span></p>
+            <p>
+              اشتراک گذاری:
+              <span
+                ><i class="fa-solid fa-envelope"></i
+                ><i class="fa-brands fa-facebook-f"></i
+                ><i class="fa-brands fa-pinterest"></i
+                ><i class="fa-brands fa-x-twitter"></i
+              ></span>
+            </p>
+          </div>
+        </div>
+      </div> -->
+    </section>
+    <!--end show product -->
     <!-- start footer -->
     <footer>
       <!-- start Support -->

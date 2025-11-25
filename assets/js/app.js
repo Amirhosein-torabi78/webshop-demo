@@ -470,7 +470,7 @@ async function showDataUser() {
 
   if (userId) {
     const data = await fetchJSON(`http://localhost:3000/api/users/${userId}`);
-    Numberbasket.innerText = data.basket.length;
+    Numberbasket.innerText = data.basket.length.toLocaleString("fa-IR");
     const Exit = `
      <a href="./assets/page/Login/login.html" onclick="exitUsers()"> 
      <i class="fa-solid fa-arrow-right-from-bracket"></i>خروج
@@ -481,16 +481,16 @@ async function showDataUser() {
     data.basket.forEach((product) => {
       totalPrice += product.price;
     });
-    price.innerText = `${totalPrice.toLocaleString()} تومان`;
+    price.innerText = `${totalPrice.toLocaleString("fa-IR")} تومان`;
   } else {
-    Numberbasket.innerText = 0;
+    Numberbasket.innerText = "0".toLocaleString("fa-IR");
     const login = `
     <i class="fa-regular fa-user"></i>
     <a href="./assets/page/sign up/sign-up.html">ثبت نام</a> /
     <a href="./assets/page/Login/login.html">ورود</a>
     `;
     ExitUser.innerHTML = login;
-    price.innerText = "0 تومان";
+    price.innerText = "0 تومان".toLocaleString("fa-IR");
   }
 }
 //-----------------------------------------------
@@ -511,3 +511,16 @@ window.addEventListener("load", () => {
   addSliderImages();
   showDataUser();
 });
+//این بخش برای اضافه کردن محصولات به سبدخرید هست
+async function addProductToList(Product_Id, saveLocation, buttonElement) {
+  const iconTag = buttonElement.querySelector("i");
+  iconTag.className = "fa-solid fa-check";
+
+  let userId = window.localStorage.getItem("userId");
+
+  await fetchJSON(`http://localhost:3000/api/users/${userId}/${saveLocation}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ productId: Product_Id }),
+  });
+}

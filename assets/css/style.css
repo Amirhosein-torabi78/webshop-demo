@@ -51,14 +51,12 @@ button {
     flex-direction: column;
     justify-content: start !important;
   }
-  .box-menu a,
-  .box-menu .wrapper-Login {
+  .box-menu a, .box-menu .wrapper-Login {
     border-radius: 0 !important;
     text-align: start !important;
     border-bottom: 1px solid #ccc;
   }
-  .box-menu a a,
-  .box-menu .wrapper-Login a {
+  .box-menu a a, .box-menu .wrapper-Login a {
     border: none !important;
   }
   .box-menu div {
@@ -234,13 +232,7 @@ body header .header-top .box-menu .wrapper-location .img-location img {
   vertical-align: 2px;
   width: 100%;
 }
-body
-  header
-  .header-top
-  .box-menu
-  .wrapper-location
-  .title-loction
-  :nth-child(1) {
+body header .header-top .box-menu .wrapper-location .title-loction :nth-child(1) {
   color: #848484;
   margin-bottom: 5px;
 }
@@ -419,6 +411,7 @@ body header .header-nav ul li:hover {
 body header .header-nav ul li img {
   width: 20px;
 }
+
 .active {
   right: 0;
 }
@@ -551,13 +544,7 @@ body .wrapper-slider .wrapper-Slider-item .slider-item {
 body .wrapper-slider .wrapper-Slider-item .slider-item img {
   border-radius: 10px;
 }
-body
-  .wrapper-slider
-  .wrapper-Slider-item
-  .slider-item:hover
-  .slider-img
-  .slider-iconds
-  button {
+body .wrapper-slider .wrapper-Slider-item .slider-item:hover .slider-img .slider-iconds button {
   opacity: 1;
 }
 body .wrapper-slider .wrapper-Slider-item .slider-item div.slider-img {
@@ -566,12 +553,7 @@ body .wrapper-slider .wrapper-Slider-item .slider-item div.slider-img {
   position: relative;
   z-index: 1;
 }
-body
-  .wrapper-slider
-  .wrapper-Slider-item
-  .slider-item
-  div.slider-img
-  .slider-iconds {
+body .wrapper-slider .wrapper-Slider-item .slider-item div.slider-img .slider-iconds {
   width: 80% !important;
   height: 35px;
   position: absolute;
@@ -584,13 +566,7 @@ body
   align-items: center;
   justify-content: spa;
 }
-body
-  .wrapper-slider
-  .wrapper-Slider-item
-  .slider-item
-  div.slider-img
-  .slider-iconds
-  button {
+body .wrapper-slider .wrapper-Slider-item .slider-item div.slider-img .slider-iconds button {
   position: relative !important;
   width: 25px !important;
   height: 25px;
@@ -603,24 +579,11 @@ body
   transform: scale(1);
   transition: all 0.5s ease;
 }
-body
-  .wrapper-slider
-  .wrapper-Slider-item
-  .slider-item
-  div.slider-img
-  .slider-iconds
-  button:hover {
+body .wrapper-slider .wrapper-Slider-item .slider-item div.slider-img .slider-iconds button:hover {
   transform: scale(1.15);
   box-shadow: 0 0 20px 2px #868686;
 }
-body
-  .wrapper-slider
-  .wrapper-Slider-item
-  .slider-item
-  div.slider-img
-  .slider-iconds
-  button
-  i {
+body .wrapper-slider .wrapper-Slider-item .slider-item div.slider-img .slider-iconds button i {
   color: #5d5d5d;
   font-size: 16px;
   position: absolute;
@@ -705,12 +668,7 @@ body .Latest-news .wrapper-Slider-item .slider-item .continue-reading > p {
 body .Latest-news .wrapper-Slider-item .slider-item:hover .continue-reading {
   opacity: 1;
 }
-body
-  .Latest-news
-  .wrapper-Slider-item
-  .slider-item:hover
-  .continue-reading
-  > p {
+body .Latest-news .wrapper-Slider-item .slider-item:hover .continue-reading > p {
   margin-top: 20% !important;
 }
 body .wrapper-baner {
@@ -970,4 +928,4 @@ body footer .menu-bottom a {
   align-items: center;
   flex-direction: column;
   gap: 5px;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
