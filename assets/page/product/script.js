@@ -130,7 +130,7 @@
           </div>
           <div class="col-10">
             <p>${item.title}</p>
-            <span>${item.price} تومان</span>
+            <span>${item.price.toLocaleString("fa-IR")} تومان</span>
           </div>
         </a>
       `
@@ -308,8 +308,8 @@
     <div class="wrapper-discription">
       <h4>${e.title}</h4>
       <div>
-        <s class ="${resultOff}">${result.toLocaleString("fa-IR")} تومان</s>
-        <span>${e.price.toLocaleString("fa-IR")} تومان</span>
+        <s class ="${resultOff}">${e.price.toLocaleString("fa-IR")}تومان </s>
+        <span>${result.toLocaleString("fa-IR")}تومان</span>
       </div>
     </div>
   </div>
@@ -518,7 +518,6 @@
     const NumberInterest = $(".Number-Interest-lists");
     const price = $(".Total-cart-price");
     if (userId) {
-      // const data = await fetchJSON(`http://localhost:3000/api/users/${userId}`);
       let currentUser = await loadUserData();
       Numberbasket.innerText =
         currentUser.basket.length.toLocaleString("fa-IR");
@@ -550,13 +549,13 @@
       }
     );
   }
-  async function Product(productId) {
-    let data = await fetchJSON(
-      `http://localhost:3000/api/products/${productId}`
-    );
-    console.log(data);
-  }
-  Product("a8fefd9a-c65e-4828-8461-99f43805b788");
+  // async function Product(productId) {
+  //   let data = await fetchJSON(
+  //     `http://localhost:3000/api/products/${productId}`
+  //   );
+  //   console.log(data);
+  // }
+  // Product("a8fefd9a-c65e-4828-8461-99f43805b788");
 
   const showProduct = $(".show__product");
   //این تابع برای نمایش سریع محصولات تعریف شده
@@ -632,9 +631,96 @@
   function addClass() {
     showProduct.classList.add("d-none");
   }
+  let containerProductsMain = $(".products-main");
+  let productsFilter = $(".products-filter");
+  let basket = $(".basket");
+  async function showProductsBasket() {
+    let currentUser = await loadUserData();
+    let templateHtml = "";
+    let priceOff;
+    let DiscountedPrice = 0;
+    let PriceWithoutDiscount = 0;
+    currentUser.basket.forEach((e) => {
+      if (e.off > 0) {
+        priceOff = e.price - (e.price * e.off) / 100;
+      } else {
+        priceOff = e.price;
+      }
+      DiscountedPrice += priceOff;
+      PriceWithoutDiscount += e.price;
+      templateHtml += `
+      <div class="product__basket">
+           <i class="fa-solid fa-xmark" aria-hidden="true" onclick="deleteProduct('${e.id}','basket')"></i>
+            <div class="img__products__basket">
+              <img
+              class="w-100"
+                src="${e.src}"
+                alt=""
+              />
+            </div>
+            <div class="Product__feature__basket">
+              <h3>${e.title}</h3>
+              <ul>
+                <li>
+                  <i class="fa-solid fa-award"></i> گارانتی 18 ماهه کسری پارس( 3
+                  ماه تعویض طلایی)
+                </li>
+                <li><i class="fa-solid fa-shop"></i>اسمارت تکنولوژی</li>
+                <li><i class="fa-solid fa-truck"></i>ارسال لومان</li>
+                <li>
+                  <i class="fa-solid fa-truck-fast"></i>ارسال سریع تا (تهران ،
+                  کرج)
+                </li>
+              </ul>
+              <div class="product__price__basket">
+              <div class="Product__counter">
+                <button><i class="fa-solid fa-minus"></i></button>
+                <input type="number" value="1" />
+                <button><i class="fa-solid fa-plus"></i></button>
+              </div>
+               <p class="price">${priceOff.toLocaleString("fa-IR")}تومان</p>
+            </div>
+            </div>
+          </div>`;
+    });
+
+    let templateHtmlbasket = `
+    <div class="Purchase__payment">
+            <ul>
+              <li>قیمت کالاها (${currentUser.basket.length})
+              <span>${PriceWithoutDiscount.toLocaleString(
+                "fa-IR"
+              )}تومان</span></li>
+              <li>مبلغ پرداختی <span>${DiscountedPrice.toLocaleString(
+                "fa-IR"
+              )}تومان</span></li>
+            </ul>
+            <button>تایید و تکمیل سفارش</button>
+          </div>
+    `;
+    containerProductsMain.innerHTML = templateHtml;
+    productsFilter.innerHTML = templateHtmlbasket;
+    ProductCategoriesTitel.innerHTML = "سبدخرید";
+    toggleClass(containerBtns, "d-none", "add");
+  }
+  basket.addEventListener("click", showProductsBasket);
+  //این تابع برای حذف محصول از سبد خرید هست
+  async function deleteProduct(productId ,removeLocation) {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/users/${userId}/${removeLocation}?productId=${productId}`,
+        {
+          method: "DELETE",
+        }
+      );
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  }
   //این فانکشن هارو global کردم تا onclick که برای elements تعریف کردم کار کنه
   window.ChangingProductSizes = ChangingProductSizes;
   window.addProductToList = addProductToList;
   window.addClass = addClass;
   window.ShowDroductData = ShowDroductData;
+  window.deleteProduct = deleteProduct;
 })();
