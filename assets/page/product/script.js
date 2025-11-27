@@ -1,5 +1,6 @@
 /** @format */
 "use strict";
+import templateProduct from "../../components/modules/templateProduct.js";
 (async () => {
   const $ = (sel) => document.querySelector(sel);
   const btnMenu = $(".btn-menu");
@@ -199,10 +200,15 @@
     const data = await fetchJSON(apiUrl);
     let html = "";
     try {
-      await templateFn;
-      data[productsKey].forEach((item, index) => {
-        html += templateFn(item, index);
-      });
+      if (productsKey == "favorite") {
+        data[productsKey].forEach((item, index) => {
+          html += templateFn(item, index, true, currentUser);
+        });
+      } else {
+        data[productsKey].forEach((item, index) => {
+          html += templateFn(item, index, false, currentUser);
+        });
+      }
 
       if (appendMode) {
         // container.innerHTML += html;
@@ -219,105 +225,8 @@
     }
   }
   // این بخش ساختار html محصولات هست
-  let minPriceProduct = Infinity;
-  let maxPriceProduct = -Infinity;
+
   currentUser = await loadUserData();
-
-  function templateProduct(e, i) {
-    let resultOff = "d-none";
-    // این بخش برای کم کردن مقدار تخفیف از قیمت هست
-    const price = e.price;
-    const off = e.off;
-    let result = price - (price * off) / 100;
-    // این بخش برای مشخص کردن بیشترین قیمت و کمترین قیمت هست
-    if (price < minPriceProduct) {
-      minPriceProduct = price;
-    }
-    if (price > maxPriceProduct) {
-      maxPriceProduct = price;
-    }
-    minRange.value = minPriceProduct;
-    minRange.min = minPriceProduct;
-    minRange.max = maxPriceProduct;
-    minPrice.textContent = minPriceProduct.toLocaleString("fa-IR");
-    maxRange.value = maxPriceProduct;
-    maxRange.max = maxPriceProduct;
-    maxRange.min = minPriceProduct;
-    maxPrice.textContent = maxPriceProduct.toLocaleString("fa-IR");
-    // این شرط برای کنترل داشتن تخفیف هست
-    if (e.off > 0) {
-      resultOff = "";
-    } else {
-      resultOff = "d-none";
-    }
-    //این بخش برای تشخیص محصولاتی که در سبد خرید و موردعلاقه هست
-    let classNameFavorite = currentUser.favorite.some((p) => p.id === e.id)
-      ? "fa-solid fa-check"
-      : "fa-regular fa-heart";
-
-    let classNameBasket = currentUser.basket.some((p) => p.id === e.id)
-      ? "fa-solid fa-check"
-      : "fa-solid fa-cart-shopping";
-
-    // if (Filter) {
-    //   if (
-    //     e.price >= Number(minRange.value) &&
-    //     e.price <= Number(maxRange.value)
-    //   ) {
-    //     if (e.off > 0) {
-    //       resultOff = "d-inlin";
-    //     } else {
-    //       resultOff = "d-none";
-    //     }
-    //   }
-    // }
-
-    // if (Off) {
-    //   if (e.off > 0) {
-    //     resultOff = "d-inlin";
-    //   }
-    // }
-    // ساختار html
-    return `
-  <div class="product__car" data-index="${i}">
-    <div class="wrapper-img">
-      <img class="w-100" src="${e.src}" alt="${e.title}" />
-      <span class="off ${resultOff}">%${e.off}</span>
-      <div class="wrapper-icons">
-        <button 
-          class="slider-like" 
-          title="افزودن به علاقه مندی" 
-          onclick="addProductToList('${e.id}', 'favorite', this)">
-          <i class="${classNameFavorite}" aria-hidden="true"></i>
-        </button>
-        <button title="مقایسه" class="slider-view d-none d-md-block">
-          <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
-        </button>
-        <button title="مشاهده سریع" class="slider-view d-none d-md-block" onclick="ShowDroductData('${
-          e.id
-        }')">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="wrapper-basket" onclick="addProductToList('${
-        e.id
-      }', 'basket', this)">
-        <div>
-          <span>سبد خرید</span>
-          <i class="${classNameBasket}" style="color: #ffffff"></i>
-        </div>
-      </div>
-    </div>
-    <div class="wrapper-discription">
-      <h4>${e.title}</h4>
-      <div>
-        <s class ="${resultOff}">${e.price.toLocaleString("fa-IR")}تومان </s>
-        <span>${result.toLocaleString("fa-IR")}تومان</span>
-      </div>
-    </div>
-  </div>
-`;
-  }
 
   addSliderImages(
     "http://localhost:3000/api/categories",
@@ -445,6 +354,7 @@
   filterBtn.addEventListener("click", filterproduct);
   function filterproduct() {
     const id = sessionStorage.getItem("idCategory");
+console.log(id);
 
     if (id == "All") {
       addSliderImages(
@@ -465,9 +375,9 @@
   const NewsArticlesSubMenu = $(".sub-menu .Off");
   NewsArticles.addEventListener("click", filterOff);
   NewsArticlesSubMenu.addEventListener("click", filterOff);
-  function filterOff() {
+  function filterOff(action) {
     addSliderImages(
-      "http://localhost:3000/api/products/offs",
+      `http://localhost:3000/api/products/filter?${action}=true`,
       ".product-container",
       templateProduct
     );
@@ -512,7 +422,8 @@
     });
   }
 
-  handleCheck(".discount", ".product-container", filterOff);
+  handleCheck(".discount", ".product-container", () => filterOff("auction"));
+  handleCheck(".warehouse", ".product-container", () => filterOff("inStash"));
   //---------------------------------------------------------
   // این بخش برای نمایش دادن data کاربر بعد از ورود یا ثبت نام هست
   //---------------------------------------------------------
@@ -555,7 +466,7 @@
 
   const showProduct = $(".show__product");
   //این تابع برای نمایش سریع محصولات تعریف شده
-  async function ShowDroductData(productId) {
+  async function showProductData(productId) {
     let data = await fetchJSON(
       `http://localhost:3000/api/products/${productId}`
     );
@@ -693,7 +604,7 @@
     toggleClass(containerBtns, "d-none", "add");
   }
   basket.addEventListener("click", showProductsBasket);
-  //این تابع برای حذف محصول از سبد خرید هست
+  //این تابع برای حذف محصول از سبد خرید یا علاقه مندی ها هست هست
   async function deleteProduct(productId, removeLocation) {
     try {
       const res = await fetch(
@@ -725,14 +636,33 @@
   window.ChangingProductSizes = ChangingProductSizes;
   window.addProductToList = addProductToList;
   window.addClass = addClass;
-  window.ShowDroductData = ShowDroductData;
+  window.showProductData = showProductData;
   window.deleteProduct = deleteProduct;
+  window.showProductsFavorite = showProductsFavorite;
+  window.loadUserData = loadUserData;
+  window.addSliderImages = addSliderImages;
+  window.InjectionProducts = InjectionProducts;
+  window.GetAllProduct = GetAllProduct;
+  window.filterproduct = filterproduct;
+  window.formatPrice = formatPrice;
+  window.filterOff = filterOff;
+  window.handleCheck = handleCheck;
+  window.ChangingProductSizes = ChangingProductSizes;
+  window.showDataUser = showDataUser;
+  window.addProductToList = addProductToList;
+  window.addClass = addClass;
+  window.showProductsBasket = showProductsBasket;
+  window.createCategoryList = createCategoryList;
+  window.toggleClass = toggleClass;
+  window.fetchJSON = fetchJSON;
+  window.renderSearchResults = renderSearchResults;
+  window.searchProducts = searchProducts;
 
-  async function Product(productId) {
-    let data = await fetchJSON(
-      `http://localhost:3000/api/products/filter?inStash=true&minPrice=10000000&maxPrice=40000000`
-    );
-    console.log(data);
-  }
-  Product();
+  // async function Product(productId) {
+  //   let data = await fetchJSON(
+  //     `http://localhost:3000/api/products/filter?inStash=true&minPrice=10000000&maxPrice=40000000`
+  //   );
+  //   console.log(data);
+  // }
+  // Product();
 })();

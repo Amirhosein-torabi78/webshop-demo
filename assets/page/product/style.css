@@ -695,7 +695,7 @@ body header .header-nav ul li img {
 .wrapper-discription > div {
   display: flex;
   gap: 10px;
-  height: 80px;
+  /* height: 80px; */
 }
 .wrapper-discription > div span {
   color: #007bff;
@@ -705,6 +705,25 @@ body header .header-nav ul li img {
 .wrapper-discription > div s {
   color: #ccc !important;
   font-size: 12px;
+}
+.wrapper-discription > button {
+  width: 0%;
+  border: none;
+  margin: 25px auto 0 auto;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 20px;
+  /* height: 0; */
+  transition: all 0.4s;
+  text-align: center;
+}
+.product__car:hover .wrapper-discription > button {
+  width: 100%;
+}
+.wrapper-discription > button i {
+  padding:10px;
+  margin: auto;
 }
 /* start footer */
 body footer .Support__footer {
@@ -1103,7 +1122,7 @@ input[type="number"] {
   width: 100%;
   display: flex;
   border-bottom: 1px solid #ccc;
-  padding:30px;
+  padding: 30px;
   position: relative;
 }
 .product__basket > i {

@@ -161,63 +161,63 @@
       </section>
       <section class="products w-1400">
         <div class="products-filter">
-           <div class="Purchase__payment d-none">
+          <div class="Purchase__payment d-none">
             <ul>
               <li class="price__not__off"><span></span></li>
               <li class="price__off"><span></span></li>
             </ul>
             <button>تایید و تکمیل سفارش</button>
           </div>
-         <div class=" container__filter">
-           <div class="price-filter">
-            <h3>فیلتر براساس قیمت:</h3>
+          <div class="container__filter">
+            <div class="price-filter">
+              <h3>فیلتر براساس قیمت:</h3>
 
-            <div class="slider-box">
-              <div class="slider-track"></div>
-              <input
-                type="range"
-                id="minRange"
-                min="1000000"
-                max="12000000"
-                value="1000000"
-                step="10000"
-              />
-              <input
-                type="range"
-                id="maxRange"
-                min="1000000"
-                max="12000000"
-                value="12000000"
-                step="10000"
-              />
-            </div>
+              <div class="slider-box">
+                <div class="slider-track"></div>
+                <input
+                  type="range"
+                  id="minRange"
+                  min="1000000"
+                  max="12000000"
+                  value="1000000"
+                  step="10000"
+                />
+                <input
+                  type="range"
+                  id="maxRange"
+                  min="1000000"
+                  max="12000000"
+                  value="12000000"
+                  step="10000"
+                />
+              </div>
 
-            <div class="price-values">
-              <span>قیمت: </span>
-              <span id="minPrice">۰</span>
-              <span>—</span>
-              <span id="maxPrice">۰</span>
-              <span>تومان</span>
-            </div>
+              <div class="price-values">
+                <span>قیمت: </span>
+                <span id="minPrice">۰</span>
+                <span>—</span>
+                <span id="maxPrice">۰</span>
+                <span>تومان</span>
+              </div>
 
-            <button class="filter-btn">فیلتر</button>
-          </div>
-          <div class="discount-filter">
-            <h3>وضعیت محصول</h3>
-            <div>
-              <input id="discount" class="discount" type="checkbox" />
-              <label for="discount">حراج</label>
+              <button class="filter-btn">فیلتر</button>
             </div>
-            <div>
-              <input id="warehouse" class="warehouse" type="checkbox" />
-              <label for="warehouse">درانبار</label>
+            <div class="discount-filter">
+              <h3>وضعیت محصول</h3>
+              <div>
+                <input id="discount" class="discount" type="checkbox" />
+                <label for="discount">حراج</label>
+              </div>
+              <div>
+                <input id="warehouse" class="warehouse" type="checkbox" />
+                <label for="warehouse">درانبار</label>
+              </div>
+            </div>
+            <div class="category-filter">
+              <h3>دسته‌های محصولات</h3>
+              <ul></ul>
             </div>
           </div>
-          <div class="category-filter">
-            <h3>دسته‌های محصولات</h3>
-            <ul></ul>
-          </div>
-         </div>
         </div>
         <div class="products-main">
           <div class="product-controls">
@@ -430,8 +430,7 @@
     </main>
     <!-- end main -->
     <!-- start show product -->
-    <section class="show__product d-none">
-    </section>
+    <section class="show__product d-none"></section>
     <!--end show product -->
     <!-- start footer -->
     <footer>
@@ -590,7 +589,10 @@
     </footer>
     <!-- end footer -->
     <!-- cdn font awesome -->
-    <script src="https://kit.fontawesome.com/a6d46a5bbd.js"crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a6d46a5bbd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js" type="module"></script>
   </body>
 </html>
