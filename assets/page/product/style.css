@@ -935,7 +935,6 @@ body footer .menu-bottom a {
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 80%;
-  height: 85%;
   z-index: 101;
   border-radius: 5px;
   overflow: hidden;
@@ -948,7 +947,7 @@ body footer .menu-bottom a {
   cursor: pointer;
 }
 .container__product .img__product {
-  width: 45%;
+  width: 40%;
 }
 .container__product .img__product div,
 .container__product .img__product img {
@@ -1116,6 +1115,8 @@ input[type="number"] {
 }
 .product__basket .img__products__basket {
   width: 25%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .product__basket .Product__feature__basket {
   width: 70%;

@@ -15,15 +15,15 @@ async function Filter(req, res) {
     for (let key in req.query) {
       switch (key) {
         case "maxPrice": {
-          products = products.filter(
-            (product) => product.price <= req.query[key]
-          );
+          products = products
+            .filter((product) => product.price <= req.query[key])
+            .sort((a, b) => a.price - b.price);
           break;
         }
         case "minPrice": {
-          products = products.filter(
-            (product) => product.price >= req.query[key]
-          );
+          products = products
+            .filter((product) => product.price >= req.query[key])
+            .sort((a, b) => b.price - a.price);
           break;
         }
         case "brand": {

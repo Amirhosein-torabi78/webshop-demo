@@ -15,6 +15,7 @@
   const btnsSubMenu = document.querySelectorAll(".btns button");
   const menuCategories = $(".menu-categories");
   const subMenu = $(".sub-menu");
+  const containerFilter = $(".container__filter");
   const userId = window.localStorage.getItem("userId");
 
   // ---------------------------
@@ -210,6 +211,8 @@
         container.innerHTML = "";
         container.insertAdjacentHTML("beforeend", html);
       }
+      containerFilter.classList.remove("d-none");
+      PurchasePayment.classList.add("d-none");
     } catch {
       let html = `<div>پاسخی از سرور دریافت نشد</div>`;
       container.innerHTML = html;
@@ -549,13 +552,6 @@
       }
     );
   }
-  // async function Product(productId) {
-  //   let data = await fetchJSON(
-  //     `http://localhost:3000/api/products/${productId}`
-  //   );
-  //   console.log(data);
-  // }
-  // Product("a8fefd9a-c65e-4828-8461-99f43805b788");
 
   const showProduct = $(".show__product");
   //این تابع برای نمایش سریع محصولات تعریف شده
@@ -588,11 +584,6 @@
     </ul>
 
     <div class="add__to__basket">
-      <div class="Product__counter">
-        <button><i class="fa-solid fa-minus"></i></button>
-        <input type="number" value="1" />
-        <button><i class="fa-solid fa-plus"></i></button>
-      </div>
       <button onclick="addProductToList('${
         data.id
       }', 'basket',this)">افزودن به سبدخرید<i class=""></i></button>
@@ -631,8 +622,10 @@
   function addClass() {
     showProduct.classList.add("d-none");
   }
-  let containerProductsMain = $(".products-main");
-  let productsFilter = $(".products-filter");
+  const productContainer = $(".product-container");
+  const PurchasePayment = $(".Purchase__payment");
+  const priceNotOff = $(".price__not__off");
+  const price__off = $(".price__off");
   let basket = $(".basket");
   async function showProductsBasket() {
     let currentUser = await loadUserData();
@@ -650,7 +643,9 @@
       PriceWithoutDiscount += e.price;
       templateHtml += `
       <div class="product__basket">
-           <i class="fa-solid fa-xmark" aria-hidden="true" onclick="deleteProduct('${e.id}','basket')"></i>
+           <i class="fa-solid fa-xmark" aria-hidden="true" onclick="deleteProduct('${
+             e.id
+           }','basket')"></i>
             <div class="img__products__basket">
               <img
               class="w-100"
@@ -684,28 +679,22 @@
           </div>`;
     });
 
-    let templateHtmlbasket = `
-    <div class="Purchase__payment">
-            <ul>
-              <li>قیمت کالاها (${currentUser.basket.length})
-              <span>${PriceWithoutDiscount.toLocaleString(
-                "fa-IR"
-              )}تومان</span></li>
-              <li>مبلغ پرداختی <span>${DiscountedPrice.toLocaleString(
-                "fa-IR"
-              )}تومان</span></li>
-            </ul>
-            <button>تایید و تکمیل سفارش</button>
-          </div>
-    `;
-    containerProductsMain.innerHTML = templateHtml;
-    productsFilter.innerHTML = templateHtmlbasket;
+    productContainer.innerHTML = templateHtml;
+    priceNotOff.innerHTML = `قیمت کالاها (${currentUser.basket.length.toLocaleString(
+      "fa-IR"
+    )})<span>${PriceWithoutDiscount.toLocaleString("fa-IR")}تومان</span>`;
+    price__off.innerHTML = `مبلغ پرداختی <span>${DiscountedPrice.toLocaleString(
+      "fa-IR"
+    )}تومان</span`;
+    containerFilter.classList.add("d-none");
+    PurchasePayment.classList.remove("d-none");
     ProductCategoriesTitel.innerHTML = "سبدخرید";
+    breadcrumb.innerHTML = "سبدخرید";
     toggleClass(containerBtns, "d-none", "add");
   }
   basket.addEventListener("click", showProductsBasket);
   //این تابع برای حذف محصول از سبد خرید هست
-  async function deleteProduct(productId ,removeLocation) {
+  async function deleteProduct(productId, removeLocation) {
     try {
       const res = await fetch(
         `http://localhost:3000/api/users/${userId}/${removeLocation}?productId=${productId}`,
@@ -717,10 +706,33 @@
       console.error("Error:", err);
     }
   }
+  //این بخش برای نمایش محصولات داخل علاقه مندی هست
+  const favorite = $(".favorite");
+  const Interest = $(".Interest");
+  Interest.addEventListener("click", showProductsFavorite);
+  favorite.addEventListener("click", showProductsFavorite);
+  function showProductsFavorite() {
+    addSliderImages(
+      `http://localhost:3000/api/users/${userId}`,
+      ".product-container",
+      templateProduct,
+      "favorite"
+    );
+    ProductCategoriesTitel.innerHTML = "علاقه‌مندی ها";
+    breadcrumb.innerHTML = "علاقه‌مندی ها";
+  }
   //این فانکشن هارو global کردم تا onclick که برای elements تعریف کردم کار کنه
   window.ChangingProductSizes = ChangingProductSizes;
   window.addProductToList = addProductToList;
   window.addClass = addClass;
   window.ShowDroductData = ShowDroductData;
   window.deleteProduct = deleteProduct;
+
+  async function Product(productId) {
+    let data = await fetchJSON(
+      `http://localhost:3000/api/products/filter?inStash=true&minPrice=10000000&maxPrice=40000000`
+    );
+    console.log(data);
+  }
+  Product();
 })();

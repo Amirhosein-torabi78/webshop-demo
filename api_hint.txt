@@ -168,7 +168,7 @@ URL: /api/products?page=pageNumber
 🔹 Get products with filter
 Method: GET
 
-URL: /api/products?maxPrice=Number&minPrice=Number&brand=String&color=String&categoryId=1&inStash=Boolean&auction=Boolean
+URL: /api/products/filter?maxPrice=Number&minPrice=Number&brand=String&color=String&categoryId=1&inStash=Boolean&auction=Boolean
 auction = یعنی حراج شده
 inStash = یعنی در انبار موجود است یا نه
 
