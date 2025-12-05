@@ -37,25 +37,7 @@ function templateProduct(e, i, isFavorite, currentUser) {
     ? "fa-solid fa-check"
     : "fa-solid fa-cart-shopping";
 
-  // if (Filter) {
-  //   if (
-  //     e.price >= Number(minRange.value) &&
-  //     e.price <= Number(maxRange.value)
-  //   ) {
-  //     if (e.off > 0) {
-  //       resultOff = "d-inlin";
-  //     } else {
-  //       resultOff = "d-none";
-  //     }
-  //   }
-  // }
 
-  // if (Off) {
-  //   if (e.off > 0) {
-  //     resultOff = "d-inlin";
-  //   }
-  // }
-  // ساختار html
   return `
   <div class="product__car" data-index="${i}">
     <div class="wrapper-img">

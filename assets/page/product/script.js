@@ -11,13 +11,16 @@ import templateProduct from "../../components/modules/templateProduct.js";
   const searchInput = $(".search-input");
   const select = $(".Categor-btn");
   const elementShow = $(".element-show");
-  const showCategory = $(".Show-category");
-  const headerNav = $(".nav");
   const btnsSubMenu = document.querySelectorAll(".btns button");
   const menuCategories = $(".menu-categories");
   const subMenu = $(".sub-menu");
-  const containerFilter = $(".container__filter");
+  const productContainer = $(".product-container");
   const userId = window.localStorage.getItem("userId");
+  const priceNotOff = $(".price__not__off");
+  const price__off = $(".price__off");
+  const basket = $(".basket");
+  const PurchasePayment = $(".Purchase__payment");
+  const containerFilter = $(".container__filter");
 
   // ---------------------------
   // مدیریت کلاس فعال منو
@@ -175,7 +178,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
   //---------------------
   //اجرای اولیه
   //----------------------
-  window.addEventListener("load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     createCategoryList(categorBtn, "option", "a");
     createCategoryList(megaMenu, "li", "a", {
       withIcon: true,
@@ -217,6 +220,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
         container.innerHTML = "";
         container.insertAdjacentHTML("beforeend", html);
       }
+
       containerFilter.classList.remove("d-none");
       PurchasePayment.classList.add("d-none");
     } catch {
@@ -282,7 +286,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
           breadcrumb.textContent = event.target.textContent.trim();
           ProductCategoriesTitel.textContent = event.target.textContent.trim();
           containerBtns.classList.add("d-none");
-          sessionStorage.setItem("idCategory", index);
+          // sessionStorage.setItem("idCategory", index);
         }
         addSliderImages(
           `http://localhost:3000/api/categories/${index}`,
@@ -321,7 +325,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
     containerBtns.classList.remove("d-none");
     breadcrumb.textContent = "فروشگاه";
     ProductCategoriesTitel.textContent = "فروشگاه";
-    sessionStorage.setItem("idCategory", "All");
+    // sessionStorage.setItem("idCategory", "All");
     // pagination();
   }
   //این بخش برای نوار قیلنر قیمت محصولات هست
@@ -353,22 +357,11 @@ import templateProduct from "../../components/modules/templateProduct.js";
   const filterBtn = $(".filter-btn");
   filterBtn.addEventListener("click", filterproduct);
   function filterproduct() {
-    const id = sessionStorage.getItem("idCategory");
-console.log(id);
-
-    if (id == "All") {
-      addSliderImages(
-        `http://localhost:3000/api/products`,
-        ".product-container",
-        (e, i) => templateFilter(e, i, true, false)
-      );
-    } else {
-      addSliderImages(
-        `http://localhost:3000/api/categories/${id}`,
-        ".product-container",
-        (e, i) => templateFilter(e, i, true, false)
-      );
-    }
+    addSliderImages(
+      `http://localhost:3000/api/products/filter?maxPrice=${maxRange.value}&minPrice=${minRange.value}`,
+      ".product-container",
+      templateProduct
+    );
   }
   // این بخش برای نمایش محصولات تخفیف دار هست
   const NewsArticles = $(".News-articles");
@@ -533,11 +526,7 @@ console.log(id);
   function addClass() {
     showProduct.classList.add("d-none");
   }
-  const productContainer = $(".product-container");
-  const PurchasePayment = $(".Purchase__payment");
-  const priceNotOff = $(".price__not__off");
-  const price__off = $(".price__off");
-  let basket = $(".basket");
+
   async function showProductsBasket() {
     let currentUser = await loadUserData();
     let templateHtml = "";
@@ -632,6 +621,16 @@ console.log(id);
     ProductCategoriesTitel.innerHTML = "علاقه‌مندی ها";
     breadcrumb.innerHTML = "علاقه‌مندی ها";
   }
+  // این تابع برای نمایش محصولات از سمت page اول هست
+  async function initialDroductDisplay() {
+    const categoryId = window.sessionStorage.getItem("id");
+    if (categoryId == "basket") {
+      await showProductsBasket();
+    } else if (categoryId == "favorite") {
+      await showProductsFavorite();
+    } else if (categoryId == "off") {
+    }
+  }
   //این فانکشن هارو global کردم تا onclick که برای elements تعریف کردم کار کنه
   window.ChangingProductSizes = ChangingProductSizes;
   window.addProductToList = addProductToList;
@@ -657,12 +656,5 @@ console.log(id);
   window.fetchJSON = fetchJSON;
   window.renderSearchResults = renderSearchResults;
   window.searchProducts = searchProducts;
-
-  // async function Product(productId) {
-  //   let data = await fetchJSON(
-  //     `http://localhost:3000/api/products/filter?inStash=true&minPrice=10000000&maxPrice=40000000`
-  //   );
-  //   console.log(data);
-  // }
-  // Product();
+  window.initialDroductDisplay = initialDroductDisplay;
 })();

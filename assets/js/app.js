@@ -524,3 +524,8 @@ async function addProductToList(Product_Id, saveLocation, buttonElement) {
     body: JSON.stringify({ productId: Product_Id }),
   });
 }
+//این تابع برای set کردن مقدار  هست
+function movePage(value) {
+  window.sessionStorage.setItem("id", value);
+  window.location.href = "./assets/page/product/index.html";
+}

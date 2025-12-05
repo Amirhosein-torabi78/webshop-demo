@@ -66,19 +66,19 @@
               class="fa-solid fa-angle-left"
             ></i>
           </a>
-          <a href="" class="item col-12 d-lg-none d-block">
+          <a href="#" class="item col-12 d-lg-none d-block" onclick="movePage('productAll')">
             <img src="./assets/img/svg/Buy-2.svg" alt="" />فروشگاه
           </a>
-          <a href="" class="item col-12 d-lg-none d-block">
+          <a href="#" class="item col-12 d-lg-none d-block" onclick="movePage('off')">
             <img src="./assets/img/svg/Discount-1.svg" alt="" />تخفیف ها
           </a>
-          <a href="" class="item col-12 d-lg-none d-block">
+          <a href="#" class="item col-12 d-lg-none d-block">
             <img src="./assets/img/svg/Document-1.svg" alt="" />بلاگ
           </a>
-          <a href="" class="item col-12 d-lg-none d-block">
+          <a href="#" class="item col-12 d-lg-none d-block">
             <img src="./assets/img/svg/Calling-3.svg" alt="" />تماس با ما
           </a>
-          <a href="" class="item col-12 d-lg-none d-block">
+          <a href="#" class="item col-12 d-lg-none d-block">
             <img src="./assets/img/svg/3-User-1.svg" alt="" />درباره ما
           </a>
           <div class="item wrapper-Login col-12 col-lg-2">
@@ -87,7 +87,12 @@
             <a href="./assets/page/Login/login.html">ورود</a>
           </div>
         </div>
-        <a title="سبد خرید" href="" class="wrapper-Shopping col-lg-2">
+        <a
+          title="سبد خرید"
+          href="#"
+          class="wrapper-Shopping col-lg-2"
+          onclick="movePage('basket')"
+        >
           <!-- cart-outline.svg -->
           <span>
             <svg
@@ -138,8 +143,8 @@
             مقالات روز</a
           >
         </div>
-        <div class="View-products">
-          <a href="./assets/page/product/index.html"
+        <div class="View-products" onclick="movePage('productAll')">
+          <a href="#"
             ><img src="./assets/img/svg/shop.805179a.svg" alt="" />مشاهده تمام
             محصولات</a
           >
@@ -271,7 +276,7 @@
           </div>
         </div>
       </div>
-      <button class="btn-Discounts d-none d-md-block">
+      <button class="btn-Discounts d-none d-md-block" onclick="movePage('off')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left.svg" alt="" />
       </button>
     </section>
@@ -298,7 +303,7 @@
     <!-- start Title visited -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">پربازدید ترین ها</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('0')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -324,7 +329,7 @@
     <!-- start Title Bestsellers  -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">پرفروش ترین ها</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('6')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -352,7 +357,7 @@
     <!-- start title products mobile -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">گوشی موبایل</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('0')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -369,7 +374,7 @@
     <!-- start title products Speaker -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">اسپیکر(بلندگو)</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('5')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -386,7 +391,7 @@
     <!-- start title products Television -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">تلویزیون</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('3')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -502,7 +507,7 @@
     <!-- start title products Game console -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">کنسول بازی</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('7')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -519,7 +524,7 @@
     <!-- start title products Laptop -->
     <section class="Discounts w-1600 col-12 Product-title">
       <div class="title-Discounts">لپ تاپ</div>
-      <button class="btn-Discounts">
+      <button class="btn-Discounts" onclick="movePage('4')">
         مشاهده همه <img src="./assets/img/svg/Arrow-Left-black.svg" alt="" />
       </button>
     </section>
@@ -684,10 +689,10 @@
         <a href="#javascript"
           ><i class="fa-solid fa-house"></i><span> صفحه اصلی</span></a
         >
-        <a href="#javascript"
+        <a href="#javascript" onclick="movePage('productAll')"
           ><i class="fa-solid fa-store"></i><span>فروشگاه</span></a
         >
-        <a href="#javascript"
+        <a href="#javascript" onclick="movePage('favorite')"
           ><i class="fa-solid fa-heart"></i><span>علاقه مندی ها</span></a
         >
         <a href="#javascript"
