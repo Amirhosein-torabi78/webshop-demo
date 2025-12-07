@@ -709,12 +709,11 @@ body header .header-nav ul li img {
 .wrapper-discription > button {
   width: 0%;
   border: none;
-  margin: 25px auto 0 auto;
+  margin: 25px auto 25px auto;
   border-radius: 5px;
   background-color: #007bff;
   color: #fff;
   font-size: 20px;
-  /* height: 0; */
   transition: all 0.4s;
   text-align: center;
 }
@@ -954,6 +953,7 @@ body footer .menu-bottom a {
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 80%;
+  height: 80%;
   z-index: 101;
   border-radius: 5px;
   overflow: hidden;

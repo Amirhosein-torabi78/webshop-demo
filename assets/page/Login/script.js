@@ -57,11 +57,11 @@ input.forEach((el) => {
   });
 });
 // این بخش برای تغییر تایپ input هست
-function toggletype() {
+function changeType() {
   if (input[1].type == "password") {
     input[1].type = "text";
   } else if (input[1].type == "text") {
     input[1].type = "password";
   }
 }
-togglePassword.addEventListener("click", toggletype);
+togglePassword.addEventListener("click", changeType);

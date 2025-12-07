@@ -15,12 +15,12 @@ import templateProduct from "../../components/modules/templateProduct.js";
   const menuCategories = $(".menu-categories");
   const subMenu = $(".sub-menu");
   const productContainer = $(".product-container");
-  const userId = window.localStorage.getItem("userId");
   const priceNotOff = $(".price__not__off");
   const price__off = $(".price__off");
   const basket = $(".basket");
   const PurchasePayment = $(".Purchase__payment");
   const containerFilter = $(".container__filter");
+  const userId = window.localStorage.getItem("userId");
 
   // ---------------------------
   // مدیریت کلاس فعال منو
@@ -186,6 +186,38 @@ import templateProduct from "../../components/modules/templateProduct.js";
     });
     createCategoryList(categoryFilter, "li", "span");
     showDataUser();
+    handleCheck(".discount", ".product-container", () => filterOff("auction"));
+    handleCheck(".warehouse", ".product-container", () => filterOff("inStash"));
+    setTimeout(InjectionProducts, 1000);
+    addSliderImages(
+      "http://localhost:3000/api/categories",
+      ".title-categorys",
+      (e, i) => {
+        return `
+    <div >
+      <img src="../../img/svg-1/${i}.svg" alt="" />
+        <span>
+            <span data-index="${i}" class="category__titles">${e.title}</span>
+            <span class="product-Number">${e.products.length} محصول</span>
+        </span>
+    </div>`;
+      },
+      "categories",
+      true
+    );
+    addSliderImages(
+      "http://localhost:3000/api/categories",
+      ".menu-categories",
+      (e, i) => {
+        return `
+    <li class="item category__titles" data-index="${i}">
+      <img src="../../img/svg/Mega-menu/${i}.svg" alt="" />
+            ${e.title}
+    </li>`;
+      },
+      "categories"
+    );
+    setTimeout(initialDroductDisplay, 300);
   });
 
   // این بخش برای نمایش تایتل محصولات هست
@@ -232,34 +264,6 @@ import templateProduct from "../../components/modules/templateProduct.js";
 
   currentUser = await loadUserData();
 
-  addSliderImages(
-    "http://localhost:3000/api/categories",
-    ".title-categorys",
-    (e, i) => {
-      return `
-    <div >
-      <img src="../../img/svg-1/${i}.svg" alt="" />
-        <span>
-            <span data-index="${i}" class="category__titles">${e.title}</span>
-            <span class="product-Number">${e.products.length} محصول</span>
-        </span>
-    </div>`;
-    },
-    "categories",
-    true
-  );
-  addSliderImages(
-    "http://localhost:3000/api/categories",
-    ".menu-categories",
-    (e, i) => {
-      return `
-    <li class="item category__titles" data-index="${i}">
-      <img src="../../img/svg/Mega-menu/${i}.svg" alt="" />
-            ${e.title}
-    </li>`;
-    },
-    "categories"
-  );
   //این بخش برای مدیریت فعال بودن باتن های منو درحالت رسپانسیو هست
   btnsSubMenu[0].addEventListener("click", () => {
     toggleClass(btnsSubMenu[0], "btn-active", "add");
@@ -276,7 +280,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
   //این بخش برای نمایش محصولات هست
   const ProductCategoriesTitel = $(".Product-categories");
   const breadcrumb = $(".breadcrumb");
-  setTimeout(InjectionProducts, 1000);
+
   async function InjectionProducts() {
     const CategoryTitles = document.querySelectorAll(".category__titles");
     CategoryTitles.forEach((e) => {
@@ -306,7 +310,6 @@ import templateProduct from "../../components/modules/templateProduct.js";
   stor.addEventListener("click", GetAllProduct);
   async function GetAllProduct(e) {
     //این بخش برای اضافه کردن btn های pagination هست
-    e.preventDefault();
     let numberPage = await fetchJSON("http://localhost:3000/api/products?page");
     const Numberbtn = Math.ceil(numberPage.products.length / 10);
     containerBtns.innerHTML = "";
@@ -334,7 +337,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
   const minPrice = document.getElementById("minPrice");
   const maxPrice = document.getElementById("maxPrice");
   const minGap = 1000000;
-  const sliderMaxValue = maxRange.max;
+  // const sliderMaxValue = maxRange.max;
 
   function formatPrice(num) {
     return num.toLocaleString("fa-IR");
@@ -414,9 +417,6 @@ import templateProduct from "../../components/modules/templateProduct.js";
       }
     });
   }
-
-  handleCheck(".discount", ".product-container", () => filterOff("auction"));
-  handleCheck(".warehouse", ".product-container", () => filterOff("inStash"));
   //---------------------------------------------------------
   // این بخش برای نمایش دادن data کاربر بعد از ورود یا ثبت نام هست
   //---------------------------------------------------------
@@ -628,7 +628,20 @@ import templateProduct from "../../components/modules/templateProduct.js";
       await showProductsBasket();
     } else if (categoryId == "favorite") {
       await showProductsFavorite();
-    } else if (categoryId == "off") {
+    } else if (categoryId == "auction") {
+      addSliderImages(
+        `http://localhost:3000/api/products/filter?auction=true`,
+        ".product-container",
+        templateProduct
+      );
+    } else if (categoryId == "productAll") {
+      GetAllProduct();
+    } else {
+      addSliderImages(
+        `http://localhost:3000/api/categories/${categoryId}`,
+        ".product-container",
+        templateProduct
+      );
     }
   }
   //این فانکشن هارو global کردم تا onclick که برای elements تعریف کردم کار کنه
