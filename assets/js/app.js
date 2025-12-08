@@ -122,13 +122,13 @@
     elementShow.innerHTML = items
       .map(
         (item) => `
-        <a href="#">
+        <a href="#" onclick="showProductData('${item.id}')">
           <div class="col-1">
             <img class="w-100" src="${item.src}" alt="${item.title}" />
           </div>
           <div class="col-10">
             <p>${item.title}</p>
-            <span>${item.price} تومان</span>
+            <span>${item.price.toLocaleString("fa-IR")} تومان</span>
           </div>
         </a>
       `
@@ -159,6 +159,10 @@
       elementShow.innerHTML = "<a>پاسخی از سرور دریافت نشد</a>";
     }
   };
+  const btnSearch = $(".btn-search");
+  btnSearch.addEventListener("click", () => {
+    movePage(select.value);
+  });
 
   // ---------------------------
   // Event Input Search
@@ -168,6 +172,7 @@
     const categoryId = select.value;
     searchProducts(value, categoryId);
   });
+
   //----------------------------
   //تایمر شماره معکوس
   //----------------------------
@@ -350,7 +355,7 @@
               }', 'basket', this)">
         <i class="${classNameBasket}"></i>
               </button>
-              <button title="" class="slider-view w-100 d-none d-md-block" onclick="showProductData('${
+              <button title="مشاهده سریع" class="slider-view w-100 d-none d-md-block" onclick="showProductData('${
                 e.id
               }')">
                 <i class="fa-solid fa-magnifying-glass"></i>

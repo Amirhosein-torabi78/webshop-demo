@@ -129,7 +129,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
     elementShow.innerHTML = items
       .map(
         (item) => `
-        <a href="#">
+        <a href="#" onclick="showProductData('${item.id}')">
           <div class="col-1">
             <img class="w-100" src="${item.src}" alt="${item.title}" />
           </div>
@@ -634,7 +634,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
         ".product-container",
         templateProduct
       );
-    } else if (categoryId == "productAll") {
+    } else if (categoryId == "productAll" || categoryId == "") {
       GetAllProduct();
     } else {
       addSliderImages(
@@ -644,6 +644,7 @@ import templateProduct from "../../components/modules/templateProduct.js";
       );
     }
   }
+
   //این فانکشن هارو global کردم تا onclick که برای elements تعریف کردم کار کنه
   window.ChangingProductSizes = ChangingProductSizes;
   window.addProductToList = addProductToList;
